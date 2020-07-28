@@ -10,10 +10,10 @@ AppName=options.appName
 if(options.full):
     subprocess.call("pip install Frida && pip install frida-tools", shell=True)
     subprocess.call("./adb push cacert.cer /sdcard/Download/", shell=True)
-    subprocess.call("./adb push frida-server /data/local/tmp", shell=True)
-    subprocess.call("./adb shell chmod 777 /data/local/tmp/frida-server", shell=True)
+    subprocess.call("./adb push frida-server-x86 /data/local/tmp", shell=True)
+    subprocess.call("./adb shell chmod 777 /data/local/tmp/frida-server-x86", shell=True)
 if(options.default):    
-    subprocess.call("./adb shell /data/local/tmp/frida-server &", shell=True)
+    subprocess.call("./adb shell /data/local/tmp/frida-server-x86 &", shell=True)
     output = subprocess.Popen("./adb shell ls /data/data/ | grep "+"\""+AppName+"\"", shell=True, stdout=subprocess.PIPE).stdout.read()
     try:
         strn=str(output); AppName=strn[(strn.index("c")):strn.index("\\")]
