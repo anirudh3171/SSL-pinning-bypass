@@ -2,6 +2,11 @@
 
 This is a python code that automates the hefty setup of frida server for SSL Pinning Bypass.
 
+Basic Command:
+```
+python3 ssl_pinning_bypass.py -d -a <target_app>
+```
+
 There are several options that will be used:
 
 `-f` `--fullinstall` : Is used to initialize the tool and automatically configure everything for you.(Only to be used once, per device)<br>
@@ -57,6 +62,8 @@ After the above step, If you want to use it with Genymotion, use the command,
 python3 with_geny.py
 ```
 ---
+
+If you need help setting up your Android with Burp Suite, follow the steps given here, https://webkul.com/blog/configure-android-device-with-burpsuite/
 
 
 The following tools are used in this project are not needed to be downloaded again:
