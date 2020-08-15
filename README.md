@@ -4,9 +4,9 @@ This is a python code that automates the hefty setup of frida server for SSL Pin
 
 There are several options that will be used:
 
-`-f` `--fullinstall` : Is used to initialize the tool and automatically configure everything for you.(Only to be used once, per device)
-`-d` `--default` : Is used to start the Frida Server in the Android app, and bypass the SSL Pinning.(Needs to be used everytime)
-`-a` `--appname` : Is used to provide the application name.(Here you can either give simply the Application Name or give the complete package name, both will work perfectly)
+`-f` `--fullinstall` : Is used to initialize the tool and automatically configure everything for you.(Only to be used once, per device)<br>
+`-d` `--default` : Is used to start the Frida Server in the Android app, and bypass the SSL Pinning.(Needs to be used everytime)<br>
+`-a` `--appname` : Is used to provide the application name.(Here you can either give simply the Application Name or give the complete package name, both will work perfectly)<bR>
 
 
 ## Cloning and setting up:
