@@ -27,7 +27,7 @@ git clone https://github.com/anirudh3171/SSL-pinning-bypass
 
 **2. Open the folder**
 ```
-cd SSL-pinning-bypass:
+cd SSL-pinning-bypass
 ```
 
 **3. Initialize the application:**
