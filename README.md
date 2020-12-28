@@ -17,7 +17,7 @@ There are several options that will be used:
 ## Cloning and setting up:
 
 ---
-If you use Genymotion as an Emulator while testing, is adviced to clone the repo in the "/genymotion/tools/" folder. If not, you can clone it anywhere. There will be some additional setup, that can be found at the end.
+If you use Genymotion as an Emulator while testing, it is adviced to clone the repo in the "/genymotion/tools/" folder. If not, you can clone it anywhere. There will be some additional setup, that can be found at the end.
 
 ---
 **1. Clone the repo:**
@@ -30,9 +30,9 @@ git clone https://github.com/anirudh3171/SSL-pinning-bypass
 cd SSL-pinning-bypass
 ```
 
-**3. Initialize the application:**
+**3. Initialize the application:** 
 ```
-python3 ssl_pinning_bypass.py -f
+sudo python3 ssl_pinning_bypass.py -f
 ```
 
 Now everything is configured and ready to go.
