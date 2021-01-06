@@ -27,7 +27,7 @@ setTimeout(function(){
 	    var cf = CertificateFactory.getInstance("X.509");
 	    
 	    try {
-	    	var fileInputStream = FileInputStream.$new("/data/local/tmp/cert-der.crt");
+	    	var fileInputStream = FileInputStream.$new("/data/local/tmp/cacert.cer");
 	    }
 	    catch(err) {
 	    	console.log("[o] " + err);
