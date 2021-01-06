@@ -19,14 +19,26 @@ if FLAG == "CONT_GEN" or (FLAG == "CONT_WO_GEN" and FLAG2 == "CHANGED"):
         subprocess.call("./../adb push cacert.cer /sdcard/Download/", shell=True)
         output = subprocess.Popen("./../adb shell getprop ro.product.cpu.abi", shell=True, stdout=subprocess.PIPE).stdout.read()
         if "x86" in str(output):
-            subprocess.call("cp frida-server-x86 frida-server", shell=True)
+            cmd1 = '''curl "https://github.com/frida/frida/releases" | grep "frida-server-" | grep "android-x86" | head -n1 > abc.txt'''
         else:
-            subprocess.call("cp frida-server-x86_64 frida-server", shell=True)
-        subprocess.call("./../adb push frida-server /data/local/tmp", shell=True)
-        subprocess.call("./../adb shell chmod 777 /data/local/tmp/frida-server", shell=True)
+            cmd1 = '''curl "https://github.com/frida/frida/releases" | grep "frida-server-" | grep "android-x86_64" | head -n1 > abc.txt'''
+        subprocess.call(cmd1, shell=True)
+        f = open("abc.txt")
+        x=f.read()
+        z=x.split()[1]
+        # z=y[1]
+        a=z[z.index("/"):len(z)-1]
+        a="https://github.com"+a
+        subprocess.call("wget "+a, shell=True)
+        f_n=z[z.rindex("/")+1:len(z)-1]
+        subprocess.call("xz -d "+f_n, shell=True)
+        subprocess.call("mv "+f_n[:-3]+" frida-server", shell=True)
+        subprocess.call("sudo ./../adb push frida-server /data/local/tmp", shell=True)
+        subprocess.call("./../adb push cacert.cer /data/local/tmp", shell=True)
+        subprocess.call("sudo ./../adb shell chmod 777 /data/local/tmp/frida-server", shell=True)
     if(options.default):    
-        subprocess.call("./../adb shell /data/local/tmp/frida-server &", shell=True)
-        output = subprocess.Popen("./../adb shell ls /data/data/ | grep "+"\""+AppName+"\"", shell=True, stdout=subprocess.PIPE).stdout.read()
+        subprocess.call("sudo ./../adb shell /data/local/tmp/frida-server &", shell=True)
+        output = subprocess.Popen("sudo ./../adb shell ls /data/data/ | grep "+"\""+AppName+"\"", shell=True, stdout=subprocess.PIPE).stdout.read()
         try:
             strn=str(output); AppName=strn[(strn.index("c")):strn.index("\\")]
         except:
